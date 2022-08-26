@@ -1,0 +1,113 @@
+.indexBox-unauth {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.indexImg {
+    width: 20%;
+}
+
+.indexTitle {
+    margin: 1vmin;
+    text-align: center;
+    font-family: 'Satisfy', cursive;
+}
+
+.indexText {
+    font-family: 'Amatic SC', cursive;
+}
+
+.indexBtn {
+    font-family: 'Satisfy', cursive;
+}
+
+.indexBox-auth {
+    width: 100%;
+    height: 100%;
+    margin: 5.5rem 0 0 0;
+    padding: 1rem 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.calBox {
+    width: 80%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+}
+
+#mainCal {
+    width: 40vw;
+}
+
+.taskBoxText {
+    width: 100%;
+    font-family: 'Amatic SC', cursive;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.itemBox {
+    width: 30vw;
+    height: 23rem;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    overflow: scroll;
+}
+
+.thisProjectBtn {
+    border: none;
+    border-radius: 5px;
+    margin: 3rem 3rem 0rem 3rem;
+}
+
+@media screen and (max-width: 600px) {
+
+    #mainCal {
+        width: 50vw;
+    }
+
+    .calBox {
+        flex-direction: column;
+    }
+
+    .itemBox {
+        margin: 1rem;
+        width: 50vw;
+    }
+}
+
+/* search result page */
+.searchResultBox {
+    width: 100%;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.searchResultListBox {
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectLink {
+    text-decoration: none;
+    color: black;
+}
+
+.projectLink:hover {
+    color: lightgrey;
+}

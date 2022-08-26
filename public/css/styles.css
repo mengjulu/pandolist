@@ -1,0 +1,36 @@
+
+/* :root{
+    --color: #555
+}
+:root[theme="dark"]{
+    --color: #fff
+}
+body {
+  color: var(--color)
+} */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.errBox {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorImage {
+    width: 30vmin;
+}
+
+.errText {
+    font-family: 'Amatic SC', cursive;
+}
+
+.hide {
+    display: none;
+}

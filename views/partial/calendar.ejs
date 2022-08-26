@@ -1,0 +1,28 @@
+<div class="modal fade" id="cal<%=listId%>" tabindex="-1" aria-labelledby="calLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="calLabel">Due date & Reminders</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 class="dueDateTitle">Due date</h6>
+        <div class="dueDateBox">
+            <input class="dueDateInput" type="date" min="<%=date%>"
+              value="<%= listDueDate?.getFullYear() + "-" + ('0' + (listDueDate?.getMonth() + 1)).slice(-2) + "-" + ("0" + listDueDate?.getDate()).slice(-2);%>">
+            <button type="button" value="<%= listId %>" class="dueDateBtn">Save</button>
+        </div>
+        <div class="dueDateBox">
+          <h6>Google Calendar</h6>
+          <img src="/static/image/list/google-calendar.svg" class="alertBtn googleNotifyBtn" alt="Google calendar"
+            data-listid="<%= listId %>">
+        </div>
+        <div class="dueDateBox">
+          <h6>Line notification</h6>
+          <img src="/static/image/list/line.svg" class="alertBtn lineNotifyBtn" alt="Line notify"
+            data-listid="<%= listId %>">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

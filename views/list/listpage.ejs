@@ -1,0 +1,45 @@
+<%- include("../partial/header.ejs")%>
+<%- include("../partial/navbar.ejs")%>
+<div class="container-fluid listpage">
+    <div class="listHead">
+        <h4 class="projectTitle"><%= thisProject.name %></h4>
+        <%- include("../partial/sort.ejs")%>
+    </div>
+    <div class="contentBox">
+        <div class="responsiveTapBox nav nav-pills btn-group" id="pills-tab" role="tablist">
+            <button class="btn btn-outline-secondary active" id="v-pills-list-tab" data-bs-toggle="pill"
+                data-bs-target="#v-pills-list" type="button" role="tab" aria-controls="v-pills-list"
+                aria-selected="true">List</button>
+            <button class="btn btn-outline-secondary" id="v-pills-chat-tab" data-bs-toggle="pill"
+                data-bs-target="#v-pills-chat" type="button" role="tab" aria-controls="v-pills-chat"
+                aria-selected="false">Chat</button>
+            <button class="btn btn-outline-secondary" id="v-pills-settings-tab" data-bs-toggle="pill"
+                data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+                aria-selected="false">Settings</button>
+        </div>
+        <div class="d-flex align-items-start">
+            <div class="tabBox nav flex-column nav-pills btn-group-vertical" id="v-pills-tab" role="tablist"
+                aria-orientation="vertical">
+                <button class="btn btn-outline-secondary active" id="v-pills-list-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-list" type="button" role="tab" aria-controls="v-pills-list"
+                    aria-selected="true">List</button>
+                <button class="btn btn-outline-secondary" id="v-pills-chat-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-chat" type="button" role="tab" aria-controls="v-pills-chat"
+                    aria-selected="false">Chat</button>
+                <button class="btn btn-outline-secondary" id="v-pills-settings-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+                    aria-selected="false">Settings</button>
+            </div>
+
+            <div class="listBox tab-content" id="v-pills-tabContent">
+                <input type="hidden" id="_csrf" value="<%= csrfToken %>">
+                <%- include("../partial/list.ejs", {lists: lists})%>
+                <%- include("../partial/chat.ejs", {lists: lists})%>
+                <%- include("../partial/project-settings.ejs", {users: users, project: thisProject})%>
+            </div>
+        </div>
+    </div>
+</div>
+<img src="/static/image/list/up-arrow.svg" class="scrollToTop"></img>
+<script src="/static/js/list.js"></script>
+<script src="/static/js/project.js"></script>

@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <input class="listImage dropdown-toggle" type="image" src="/static/image/list/sort.svg" alt=""
+  id="sort" data-bs-toggle="dropdown" aria-expanded="false">
+    <ul class="dropdown-menu" aria-labelledby="sort">
+      <li><a class="dropdown-item" href="/list/<%= thisProject.num %>">↓ Date Created(default)</a></li>
+      <li><a class="dropdown-item" href="/list/<%= thisProject.num %>/?sort=due">↓ Due Date</a></li>
+      <li><a class="dropdown-item" href="/list/<%= thisProject.num %>/?sort=alphabetical">↓ alphabetical</a></li>
+      <li><a class="dropdown-item" href="/list/<%= thisProject.num %>/?sort=check">↓ Undone Task</a></li>
+    </ul>
+  </div>

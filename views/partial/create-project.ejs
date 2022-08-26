@@ -1,0 +1,24 @@
+<div class="btn projectBtn" data-bs-toggle="modal" data-bs-target="#addProject">New project</div>
+
+<div class="modal fade" id="addProject" tabindex="-1" aria-labelledby="addProjectLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProjectLabel">Add project</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <div class="mb-3">
+            <label for="projectName" class="col-form-label">Name</label>
+            <input type="text" class="form-control" id="projectName" required>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="projectNameBtn btn btn-secondary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/project.js"></script>

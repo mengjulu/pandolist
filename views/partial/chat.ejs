@@ -1,0 +1,29 @@
+<div class="tab-pane fade" id="v-pills-chat" role="tabpanel" aria-labelledby="v-pills-chat-tab">
+    <div class="chatBox">
+        <div class="chatItem">
+            <div>
+                <%if (messages.length === 0) {%>
+                <div class="messageExample">
+                    <h6><img src="/static/image/index/panda-black.svg" class="chatAvatar"> Pandolist</h6>
+                    <p class="messageContent">Welcome 🐼 You can start chat with your members here!</p>
+                </div>
+                <%}%>
+            <% for(let message of messages){ %>
+                <div class="messageBox">
+                    <div class="messageTitleBox">
+                        <p><img src="<%= message.user.avatar.avatarPhoto %>" class="chatAvatar"> <%= message.user.account %></p>
+                        <p class="messageTitleTime"><%= messageDate.format(message.createdAt) %></p>
+                    </div>
+                    <p class="messageContent"><%= message.content %></p>
+                </div>
+                <%}%>
+            </div>
+        </div>
+        <div class="newMessageBox">
+            <input class="newMessage" type="text"> 
+            <img class="chatSendBtn" src="/static/image/list/send.svg" alt="send" data-projectid="<%=thisProject._id%>">
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/chat.js"></script>

@@ -1,0 +1,48 @@
+<div class="tab-pane fade show active" id="v-pills-list" role="tabpanel" aria-labelledby="v-pills-list-tab">
+    <% if (lists.length == 0) { %>
+    <h6 class="noListText">You have no task yet :)</h6>
+    <% } %>
+    <% for (let list of lists) { %>
+    <div class="listItem">
+        <span class="checkBox <%= list.check ? "checked" : null %>" data-listid="<%= list._id %>"></span>
+        <div class="listItemBox">
+            <label class="currentList <%= list.check ? "checkedText" : null %>"><%= list.content %></label>
+            <button type="button" class="tooltipBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Reminder">
+                <img class="listImage calendarBtn" src="/static/image/list/alarm.svg" data-num="<%= thisProject.num %>"
+                    data-listid="<%= list._id %>" data-bs-toggle="modal" data-bs-target="#cal<%=list._id%>"></button>
+            <%- include("../partial/calendar.ejs", {listId: list._id, listDueDate: list.end })%>
+            <button type="button" class="tooltipBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                <img class="listImage editListBtn" src="/static/image/list/edit.svg"
+                    data-listid="<%= list._id %>"></button>
+            <button type="button" class="tooltipBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                <img class="listImage deleteListBtn" src="/static/image/list/delete.svg"
+                    data-num="<%= thisProject.num %>" data-listid="<%= list._id %>"></button>
+        </div>
+    </div>
+    <% } %>
+    <button class="btn newList"> + Add list</button>
+    <div class="newListBox">
+        <div class="newListInputBox">
+            <input type="text" class="newListInput" autocomplete="off">
+            <img class="listImage calendarBtn" src="/static/image/list/alarm.svg" data-bs-toggle="modal"
+                data-bs-target="#newListeDate">
+            <div class="modal fade" id="newListeDate" tabindex="-1" aria-labelledby="newListeDate"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="newListeDate">Due Date</h6>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="date" min="<%=date%>" class="newListDueDate" value="<%=date%>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-secondary newListBtn">Add</button>
+        <button type="button" class="btn btn-outline-secondary cancelNewListBtn">Cancel</button>
+    </div>
+</div>
+<script src="/static/js/reminder.js"></script>

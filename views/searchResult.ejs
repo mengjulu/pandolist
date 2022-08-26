@@ -1,0 +1,32 @@
+<%- include("./partial/header.ejs")%>
+<%- include("./partial/navbar.ejs")%>
+
+<div class="container-fluid listpage">
+    <div class="searchResultBox">
+        <h5 class="listHead">Search result for ❝ <%= key %> ❞</h5>
+
+        <div class="searchResultListBox">
+            <% for (let searchProject of searchProjects) { %>
+            <% for (let list of searchProject.list) { %>
+            <div class="listItem">
+                <span class="checkBox <%= list.check ? "checked" : null %>" data-listid="<%= list._id %>"></span>
+                <div class="listItemBox">
+                    <a class="projectLink currentList <%= list.check ? "checkedText" : null %>"
+                        href="/list/<%=searchProject.num%>">
+                        <%= list.content %>
+                    </a>
+                    <img class="listImage calendarBtn" src="/static/image/list/alarm.svg" data-num="<%= searchProject.num %>"
+                    data-listid="<%= list._id %>" data-bs-toggle="modal" data-bs-target="#cal">
+                    <%- include("./partial/calendar.ejs", {listId: list._id, listDueDate: list.end})%>
+
+                    <img class="listImage editListBtn" src="/static/image/list/edit.svg" data-listid="<%= list._id %>">
+                    <img class="listImage deleteListBtn" src="/static/image/list/delete.svg"
+                        data-listid="<%= list._id %>">
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+        </div>
+    </div>
+</div>
+<script src="/static/js/list.js"></script>

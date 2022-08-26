@@ -1,0 +1,38 @@
+<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+    <div class="projectSettingBox">
+        <h6>Title</h6>
+        <div class="changeTitleBox">
+            <input class="form-control projectSettingInput newTitle" Autocomplete="off" value="<%=project.name%>"
+                data-projectid="<%=project._id%>"></input>
+            <button type="button" class="changeTitleBtn btn btn-outline-secondary">Save</button>
+        </div>
+    </div>
+    <div class="projectSettingBox">
+        <h6>Add Authentication</h6>
+        <div class="addAuthBox projectAuth">
+            <input class="form-control projectSettingInput" name="keyword" Autocomplete="off"
+                placeholder="Enter account here" type="email"></input>
+            <img class="addAuthBtn" src="/static/image/list/add.svg" data-projectid="<%=project._id%>"></img>
+        </div>
+        <div class="projectSettingBox authList">
+            <div class="projectSettingBox">
+                <p>Current Authorized List</p>
+                <%for(let user of users){%>
+                <div class="authListItem">
+                    <h5>
+                        <span class="badge bg-secondary"><%=user.account%>
+                            <%if(!user._id.equals(project.creator)){%>
+                            <img src="/static/image/list/delete-auth.svg" class="removeAuthBtn"
+                                data-projectid="<%=project._id%>" data-useraccount="<%=user.account%>"></img>
+                            <%}%>
+                                </span>
+                            </h5>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-outline-danger deleteProjectBtn" data-projectid="<%=project._id%>">Delete
+            project</button>
+    </div>

@@ -1,0 +1,28 @@
+<%- include("../partial/header.ejs")%>
+<%- include("../partial/navbar.ejs")%>
+    <div class="container-fluid accountPage">
+        <label class="avatarLabel" for="avatar">
+            <input class="accountSettingItem avatarUpload" type="file" name="avatar" id="avatar"
+                accept=".jpg,.png,.jpeg">
+            <img src="<%=user.avatar.avatarPhoto%>" class="avatarImg" id="currentAvatar" alt="accountImage">
+        </label>
+
+        <div class="accountSettingBox">
+            <span class="accountSettingTitle">Account</span>
+            <p class="accountSettingItem"><%=user.account%></p>
+        </div>
+        <div class="accountSettingBox nameEdit">
+            <span class="accountSettingTitle">Name</span>
+            <input type="hidden" id="_csrf" value="<%= csrfToken %>">
+            <input class="accountSettingItem form-control userName" type="text" value="<%=user.name%>" disabled>
+            <img class="listImage nameEditBtn" src="/static/image/list/edit.svg" alt="edit">
+        </div>
+
+        <%if(user.password){%>
+        <div class="accountSettingBox">
+            <span class="accountSettingTitle">Password</span>
+            <a class="btn btn-sm btn-outline-secondary accountSettingItem" href="/account/password">edit</a>
+        </div>
+        <%}%>
+        </div>
+<script src="/static/js/account.js"></script>

@@ -1,0 +1,19 @@
+<%- include("../partial/header.ejs")%>
+<%- include("../partial/navbar.ejs")%>
+
+<div class="container-fluid indexBox-auth">
+    <h3 class="indexText">Hello! ☺ <%=user.name%></h3>
+    <div class="calBox">
+        <div id="mainCal"></div>
+        <div class="itemBox">
+            <h4 class="indexTitle">Today's task</h4>
+            <input type="hidden" id="_csrf" value="<%= csrfToken %>">
+            <div class="mycal">
+            
+            
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/list.js"></script>
+<script src="/static/js/index-calendar.js"></script>

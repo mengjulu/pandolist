@@ -1,0 +1,27 @@
+<%- include("../partial/header.ejs")%>
+<div class="container-fluid authBox">
+    <img src="/static/image/index/panda-black.svg" alt="" class="indexImg">
+
+    <a class="authbtn btn btn-outline-dark" href="/auth/google">
+        Sign up with <img src="/static/image/account/google.svg" alt="google" class="authImg">
+    </a>
+    <hr class="authHr">
+    <form class="authForm" action="/auth/sign-up" method="POST">
+        <div class="authItem">
+            <label for="account">Account</label>
+            <input type="email" name="account" id="account"  placeholder="Your email" required>
+        </div>
+        <div class="authItem">
+            <label for="password">Password </label>
+            <input type="password" name="password" id="password" placeholder="At lease 4 characters" required>
+        </div>
+        <div class="authItem">
+            <label for="name">Name </label>
+            <input type="text" name="name" id="name" placeholder="Your name" required>
+        </div>
+        <%if (message.length != 0) {%>
+        <span class="authWarning"><%=message%></span>
+        <%}%>
+        <button class="authbtn btn btn-outline-dark" type="submit">Sign up</button>
+    </form>
+</div>

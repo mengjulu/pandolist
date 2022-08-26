@@ -1,0 +1,368 @@
+.listpage {
+    width: 100vw;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.listHead {
+    width: 100%;
+    position: sticky;
+    top: 2rem;
+    padding: 3rem 3.3rem 0rem 3rem;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.contentBox {
+    padding: 2rem 2rem;
+    width: 100%;
+    margin-top: 1rem;
+    display: block;
+    overflow: scroll;
+}
+
+.tabBox {
+    width: auto;
+    margin: 1rem 1rem 0 1rem;
+}
+
+.responsiveTapBox {
+    display: none;
+}
+
+.listBox {
+    width: 100%;
+    margin: 0 1rem;
+}
+
+.listItem {
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.445);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    word-break: break-word;
+}
+
+.listItem:hover {
+    border-bottom: 1px solid rgba(211, 211, 211);
+}
+
+.currentList {
+    width: 90%;
+    align-items: center;
+    margin: 1vmin;
+    padding: 1vmin 2vmin;
+}
+
+.listSelectBox {
+    align-items: center;
+    margin: 1vmin;
+    padding: 1vmin;
+}
+
+.listImage {
+    width: 1rem;
+    margin: 1%;
+    cursor: pointer;
+    align-items: center;
+}
+
+input[type="date"] {
+    font-family: 'Amatic SC', cursive;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.checkBox {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid rgba(211, 211, 211, 0.445);
+    border-radius: 50%;
+}
+
+.checkBox:hover {
+    border: 3px solid rgba(211, 211, 211);
+    background-image: url("/static/image/list/tick.svg");
+    background-color: rgba(211, 211, 211);
+    cursor: pointer;
+}
+
+.checked {
+    border: 3px solid rgb(104, 100, 100);
+    background-image: url("/static/image/list/tick.svg");
+    background-color: rgb(104, 100, 100);
+    cursor: pointer;
+}
+
+.checkedText {
+    text-decoration: line-through;
+}
+
+.listItemBox,
+.editlistBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.listItem:last-child {
+    border-bottom: 0;
+}
+
+.editListInput {
+    margin: 1vmin;
+    padding: 1vmin;
+    outline-width: 0;
+    width: 90%;
+    border: none;
+    align-items: center;
+    word-break: break-word;
+}
+
+.tooltipBtn {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.newListBox {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.newListInputBox {
+    width: 100%;
+    border: 1px solid rgba(211, 211, 211, 0.445);
+    border-radius: 5px;
+    margin: 2rem 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.newListInput {
+    width: 95%;
+    border: none;
+}
+
+.newListInput:focus {
+    outline: none;
+}
+
+.newList {
+    margin-top: 1rem;
+}
+
+.newList:hover {
+    background-color: rgba(211, 211, 211, 0.445);
+    color: white;
+}
+
+.newListBtn,
+.cancelNewListBtn {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.dueDateBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+}
+
+.dueDateTitle {
+    padding: 0 2rem;
+}
+
+.dueDateInput {
+    height: 2rem;
+}
+
+.dueDateBtn {
+    height: 2rem;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin: 0 0.5rem;
+    color: lightgrey;
+    background-color: white;
+}
+
+.dueDateBtn:hover {
+    background-color: lightgrey;
+    color: white;
+}
+
+.alertBtn {
+    width: 2rem;
+    margin: 1rem;
+    cursor: pointer;
+    left: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .tabBox {
+        display: none;
+    }
+
+    .responsiveTapBox {
+        display: flex;
+        width: 100%;
+        align-self: center;
+        justify-content: center;
+        padding: 0 1rem;
+    }
+}
+
+/* chat  */
+
+.chatBox {
+    width: 100%;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.chatItem {
+    height: 65vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chatItem::-webkit-scrollbar {
+    display: none;
+}
+
+.messageContent {
+    font-size: 1rem;
+    padding: 0 2rem;
+    word-wrap: break-word;
+}
+
+.messageTitleBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 90%;
+}
+
+.messageTitleTime {
+    align-self: center;
+    font-size: small;
+    color: lightgrey;
+}
+
+.chatAddInputBox {
+    display: flex;
+    flex-direction: row;
+}
+
+.chatAddInput {
+    width: 80%;
+}
+
+.chatAvatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.newMessageBox {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.newMessage {
+    width: 90%;
+}
+
+.chatSendBtn {
+    width: 1.5rem;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.noListText {
+    width: 100%;
+    padding: 1rem 0;
+    font-family: 'Amatic SC', Montserrat;
+    font-size: 1.5rem;
+}
+
+/* settings */
+.projectSettingBox {
+    margin: 1rem 1rem 1rem 0;
+}
+
+.addAuthBox,
+.changeTitleBox {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.changeTitleBtn {
+    margin: 0 0 0 0.5rem;
+}
+
+.addAuthBtn {
+    width: 1rem;
+    margin: 0 0 0 0.5rem;
+    cursor: pointer;
+}
+
+.removeAuthBtn {
+    cursor: pointer;
+    width: 6px;
+    margin: 0.3rem 0 0.3rem 0.3rem;
+}
+
+/* scroll top btn  */
+
+.scrollToTop {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2%;
+    cursor: pointer;
+}
+
+.scrollToTop:hover {
+    animation: infinite scrollToTop;
+    animation-duration: 0.8s;
+}
+
+@keyframes scrollToTop {
+    0% {
+        bottom: 2.5rem;
+    }
+
+    50% {
+        bottom: 3rem;
+    }
+
+    100% {
+        bottom: 2.5rem;
+    }
+}
