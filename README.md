@@ -87,19 +87,27 @@ A to-do list that you can chat with members and set notification.
 # Screeshot
 - Index (visitor)
 <img width="800" alt="Index (visitor)" src="https://user-images.githubusercontent.com/52753746/186680337-ccd54b26-6f44-4899-a7d7-f6592526b075.png">
+
 - Index (user)
 <img width="800" alt="Index (user)" src="https://user-images.githubusercontent.com/52753746/186682394-17d934a1-cd1b-446b-8b9c-2d0cf37cb9ee.png">
+
 - Google auth with approved account
 <img width="800" alt="googleauth" src="https://user-images.githubusercontent.com/52753746/186711605-830a4b24-9727-4b5a-ba75-e53027429aeb.gif">
+
 - project(create/edit title/delete)
 <img width="800" alt="project" src="https://user-images.githubusercontent.com/52753746/186728809-01856adb-7460-42ea-9313-cfcfecfa996c.gif">
+
 - project authorization
 <img width="800" alt="projectAuth" src="https://user-images.githubusercontent.com/52753746/186808584-e1cb4243-88ed-4d58-b9ff-2d953521eeb4.gif">
+
 - project chat
 <img width="800" alt="projectchat" src="https://user-images.githubusercontent.com/52753746/186813992-69b24d54-840b-4c99-ba95-b08f4804f5a3.gif">
+
 - list (create/edit/check/delete)
 <img width="800" alt="list" src="https://user-images.githubusercontent.com/52753746/186718174-9c85fdec-d2da-4843-8fd8-466521d7c4e0.gif">
+
 - user settings
 <img width="800" alt="user settings" src="https://user-images.githubusercontent.com/52753746/186805774-eab77c77-4f6d-461a-83a3-747a15d8e85a.png">
+
 - google notification
 <img width="800" alt="google notification" src="https://user-images.githubusercontent.com/52753746/186853478-35ba2fa7-3b8f-4c00-908b-e74348a040dc.gif">
