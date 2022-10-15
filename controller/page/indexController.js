@@ -57,7 +57,7 @@ exports.searchResult = async (req, res, next) => {
                 offCanvasProject: user.project,
                 date: date
             }) :
-            res.status(200).render("error", {
+            res.status(404).render("error", {
                 title: `Search result: ${keyword}`,
                 offCanvasProject: user.project,
                 errorMessage: "Hmmm... Lists are not found. Please try again!"

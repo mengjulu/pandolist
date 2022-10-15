@@ -5,6 +5,7 @@ exports.getSettingsPage = async (req, res, next) => {
     try {
         const user = await User.findById(req.user._id)
             .populate("project");
+
         res.status(200).render("account/settings", {
             title: "Settings",
             offCanvasProject: user.project,
@@ -12,7 +13,7 @@ exports.getSettingsPage = async (req, res, next) => {
         })
     } catch (err) {
         const error = new Error(err);
-        error.httpStatusCode = 500;
+        error.statusCode = 500;
         return next(error);
     }
 };
@@ -30,7 +31,7 @@ exports.getPasswordPage = async (req, res, next) => {
 
     } catch (err) {
         const error = new Error(err);
-        error.httpStatusCode = 400;
+        error.statusCode = 400;
         return next(error);
     }
 };

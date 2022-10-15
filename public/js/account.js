@@ -20,7 +20,7 @@ $(document).on("change", ".avatarUpload", (e) => {
 
     axios({
       method: "post",
-      url: "/account/profile/avatar",
+      url: "/account/settings",
       data: uploadImage,
       headers: {
         "Content-Type": "multipart/form-data"
@@ -61,7 +61,7 @@ $(document).on("click", ".nameEditBtn", (e) => {
 
     axios({
         method: "patch",
-        url: "/account/profile/name",
+        url: "/account/settings",
         headers: {
           "CSRF-Token": csrf
         },
@@ -101,7 +101,7 @@ $(document).on("click", ".passwordChangeBtn", (e) => {
   const csrf = $("#_csrf").val();
   axios({
       method: "patch",
-      url: "/auth/change/password",
+      url: "/auth/password",
       headers: {
         "CSRF-Token": csrf
       },

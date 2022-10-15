@@ -10,10 +10,14 @@ A to-do list that you can chat with members and set notification.
 - [Screeshot](https://github.com/mengjulu/pandolist/readme.md "Screeshot")
 
 # Live Demo
-### [https://pandolist.herokuapp.com/](https://pandolist.herokuapp.com/)
 
-<sub> ** Google auth is in development mode, so only approved accounts can be authenticated.
-</sub> 
+:round_pushpin: https://pandolist.herokuapp.com/
+
+### Test info
+:bust_in_silhouette: **User**
+>  account: test@test.com\
+>  password: test1234
+
 # Build With
 - Node.js (Express)
 - EJS
@@ -32,13 +36,30 @@ A to-do list that you can chat with members and set notification.
 ### **Install**
     npm install 
 
+### **Add .env file**
+    GOOGLE_CLIENT_ID=<google client id>
+    GOOGLE_CLIENT_SECRET=<google client secret>
+    GOOGLE_CLIENT_CALLBACK_URL=<google client callback url>
+    LINE_NOTIFY_ID=<line notify id>
+    LINE_NOTIFY_SECRET=<line notify secret>
+    LINE_NOTIFY_CALLBACK_URL=<line notify callback url>
+    GOOGLE_CLIENT_ID_CALENDAR=<google client calendar id>
+    GOOGLE_CLIENT_SECRET_CALENDAR=<google client calendar secret>
+    GOOGLE_CLIENT_SECRET_CALENDAR_URL=<google client calendar callback url>
+    IMGUR_CLIENT_ID=<imgur client id>
+    IMGUR_CLIENT_SECRET=<imgur client secret>
+    MONGODBURL=<mongodb url>
+    SESSIONSECRET=<session secret>
+    REDIS_HOST=<redis host>
+    REDIS_PORT=<redis port>
+    REDIS_PASSWORD=<redis password>
+    UPSTASH_REDIS_URL=<redis url>
+    
 ### **Start (port: 3000)**
     npm start 
 
 ### **Test**
     npm test
-
-<sub>** Google client related, LINE notify related, imgur related and mongo atlas account are needed.</sub> 
 
 # API Usage
 
@@ -51,29 +72,29 @@ A to-do list that you can chat with members and set notification.
 | POST | `/search` | Search keywords |
 | **PROJECT** | 
 | POST | `/project` | Create a new project|
-| POST | `/project/auth` | Add new member to the project |
-| PATCH | `/project/title` | Change the project's title |
+| PATCH | `/project` | Change the project's title |
 | DELETE | `/project` | Delete the project|
+| POST | `/project/auth` | Add new member to the project |
 | DELETE | `/project/auth` | Remove the authorization of member from the project |
 | **LIST** |
 | GET | `/list/:<projectnum>` | Get project page |
-| POST | `/add/list/:<projectnum>` | Create a new list in the project 
-| PATCH |`/edit/list/:<projectnum>/:<listId>`| Edit the list |
-| PATCH |`/check/list/:<projectnum>/:<listId>`| check the list |
-| PATCH |`/setdate/list/:<listId>`| Set due date for the list |
-| DELETE |`/delete/list/:<projectnum>/:<listId>`| Delete the list |
+| POST | `/list/:<projectnum>` | Create a new list in the project 
+| PATCH |`/list/:<projectnum>/:<listId>`| Edit the list |
+| DELETE |`/list/:<projectnum>/:<listId>`| Delete the list |
+| PATCH |`/list/:<listId>`| check the list |
+| PUT |`/list/:<listId>`| Set due date for the list |
 | **REMINDER** | 
 | GET | `/line-notify/:<listId>` | Set line notification |
 | GET | `/line-notify/callback` | Set line auth callback |
 | GET | `/google/calendar/:<listId>` | Set google calendar reminder |
 | GET | `/google/pandolist/calendar` | Set google auth callback |
 | **MESSAGE** | 
-| POST | `/create/message` | Create a new message|
+| POST | `/message` | Create a new message|
 | **ACCOUNT (/account)** |
-| GET | `/settings` | Get etting page |
+| GET | `/settings` | Get setting page |
 | GET | `/password` | Get change password page |
-| POST| `/profile/avatar` | Edit user's avatar |
-| PATCH | `/profile/name` | Edit user's name |
+| POST| `/settings` | Edit user's avatar |
+| PATCH | `/settings` | Edit user's name |
 | **AUTH (/auth)** |
 | GET | `/sign-up` | Get sign up page |
 | GET | `/sign-in` | Get sign in page |
@@ -82,7 +103,7 @@ A to-do list that you can chat with members and set notification.
 | GET | `/sign-out` | Sign out |
 | POST | `/sign-up` | Sign up with passport local strategy |
 | POST | `/sign-in` | Sign in with passport local strategy |
-| PATCH | `/change/password` | Change password |
+| PATCH | `/password` | Change password |
 
 # Screeshot
 - Index (visitor)
@@ -99,8 +120,8 @@ A to-do list that you can chat with members and set notification.
 ![projectchat](https://user-images.githubusercontent.com/52753746/186813992-69b24d54-840b-4c99-ba95-b08f4804f5a3.gif)
 - list (create/edit/check/delete)
 ![list](https://user-images.githubusercontent.com/52753746/186718174-9c85fdec-d2da-4843-8fd8-466521d7c4e0.gif)
-- user settings
-<img width="984" alt="user settings" src="https://user-images.githubusercontent.com/52753746/186805774-eab77c77-4f6d-461a-83a3-747a15d8e85a.png">
+- user profile
+<img width="984" alt="user profile" src="https://user-images.githubusercontent.com/52753746/186805774-eab77c77-4f6d-461a-83a3-747a15d8e85a.png">
 
 - google notification
 ![google notification](https://user-images.githubusercontent.com/52753746/186853478-35ba2fa7-3b8f-4c00-908b-e74348a040dc.gif)

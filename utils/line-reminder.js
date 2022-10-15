@@ -1,6 +1,6 @@
 const axios = require("axios");
 const schedule = require("node-schedule");
-const User = require("../../models/user");
+const User = require("../models/user");
 const lineID = process.env.LINE_NOTIFY_ID;
 const lineSecret = process.env.LINE_NOTIFY_SECRET;
 const lineCallback = process.env.LINE_NOTIFY_CALLBACK_URL;

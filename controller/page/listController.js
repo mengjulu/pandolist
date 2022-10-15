@@ -2,6 +2,8 @@ const Project = require("../../models/project");
 const User = require("../../models/user");
 const Message = require("../../models/message");
 require("dotenv").config();
+const today = new Date();
+const date = today.getFullYear() + "-" + ("0" + (today.getMonth() + 1)).slice(-2) + "-" + ("0" + today.getDate()).slice(-2);
 
 exports.listpage = async (req, res, next) => {
     try {
@@ -9,8 +11,6 @@ exports.listpage = async (req, res, next) => {
             .populate("project");
         const projectNum = req.params.projectnum;
         const sortParams = req.query.sort;
-        const today = new Date();
-        const date = today.getFullYear() + "-" + ("0" + (today.getMonth() + 1)).slice(-2) + "-" + ("0" + today.getDate()).slice(-2);
         const messageDate = new Intl.DateTimeFormat("locales", {
             dateStyle: "short",
             timeStyle: "short"
@@ -31,12 +31,7 @@ exports.listpage = async (req, res, next) => {
                 num: projectNum,
                 auth: req.user._id
             })
-            .populate({
-                path: "auth",
-                populate: {
-                    path: "user"
-                }
-            })
+            .populate("auth")
             .populate({
                 path: "list",
                 options: {
@@ -44,19 +39,21 @@ exports.listpage = async (req, res, next) => {
                 }
             });
 
-        const messages = await Message.find({
-            project: thisProject?._id
-        }).populate({
-            path: "user",
-            select: "account avatar"
-        });
-        !thisProject ?
-            res.status(200).render("error", {
+        if (!thisProject) {
+            return res.status(401).render("error", {
                 title: "Sorry! ;(",
                 offCanvasProject: user.project,
                 errorMessage: "Oops! The project is not existed or you are not authorized."
-            }) :
-            res.status(200).render("list/listpage", {
+            })
+        } else {
+            const messages = await Message.find({
+                project: thisProject._id
+            }).populate({
+                path: "user",
+                select: "account avatar"
+            });
+
+            return res.status(200).render("list/listpage", {
                 title: `Pandolist: ${thisProject.name}`,
                 offCanvasProject: user.project,
                 date: date,
@@ -67,10 +64,12 @@ exports.listpage = async (req, res, next) => {
                 messageDate: messageDate,
                 csrfToken: req.csrfToken()
             })
+        }
 
     } catch (err) {
+        console.log(err)
         const error = new Error(err);
-        error.httpStatusCode = 500;
+        error.statusCode = 500;
         return next(error);
     }
 };

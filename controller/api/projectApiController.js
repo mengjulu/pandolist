@@ -17,9 +17,9 @@ exports.addProject = async (req, res, next) => {
             name: projectName,
             creator: userId,
             num: project ? Math.floor(Date.now() * Math.random()) : num
-        });
-        await newProject.addAuth(user);
+        }).save();
 
+        await newProject.addAuth(user);
         res.status(200).json({
             newProject: newProject
         });
@@ -53,40 +53,6 @@ exports.changeTitle = async (req, res, next) => {
     }
 };
 
-exports.deleteProject = async (req, res, next) => {
-    try {
-        const projectId = req.body.projectId;
-        const project = await Project.findById(projectId);
-        const projectAuth = project.auth;
-
-        await projectAuth.map(async (auth) => {
-            const user = await User.findById(auth);
-            user.removeProjectId(projectId);
-        });
-
-        await List.deleteMany({
-            project: projectId
-        }).exec();
-
-        await Message.deleteMany({
-            project: projectId
-        }).exec();
-
-        const projectDelete = await Project.deleteOne({
-                _id: projectId
-            })
-            .exec();
-
-        res.status(200).json({
-            deleteStatus: projectDelete.ok === 1 ? true : false
-        });
-    } catch (err) {
-        const error = new Error(err);
-        error.statusCode = 500;
-        return next(error);
-    }
-};
-
 exports.addProjectAuth = async (req, res, next) => {
     try {
         const projectId = req.body.projectId;
@@ -99,11 +65,11 @@ exports.addProjectAuth = async (req, res, next) => {
             }
         });
         if (!user) {
-            res.status(200).json({
+            res.status(404).json({
                 addAuthStatus: "No user"
             });
         } else if (project.auth.includes(user._id)) {
-            res.status(200).json({
+            res.status(400).json({
                 addAuthStatus: "User exist"
             })
         } else {
@@ -131,6 +97,38 @@ exports.removeProjectAuth = async (req, res, next) => {
         await project.removeAuth(user);
         res.status(200).json({
             removeAuthStatus: user.project.includes(projectId) || project.auth.includes(user._id) ? false : true
+        });
+    } catch (err) {
+        const error = new Error(err);
+        error.statusCode = 500;
+        return next(error);
+    }
+};
+
+exports.deleteProject = async (req, res, next) => {
+    try {
+        const projectId = req.body.projectId;
+        const project = await Project.findById(projectId);
+        const projectAuth = project.auth;
+
+        await projectAuth.map(async (auth) => {
+            const user = await User.findById(auth);
+            user.removeProjectId(projectId);
+        });
+        await List.deleteMany({
+            project: projectId
+        }).exec();
+
+        await Message.deleteMany({
+            project: projectId
+        }).exec();
+
+        const projectDelete = await Project.deleteOne({
+                _id: projectId
+            })
+            .exec();
+        res.status(200).json({
+            deleteStatus: projectDelete.deletedCount === 1 ? true : false
         });
     } catch (err) {
         const error = new Error(err);

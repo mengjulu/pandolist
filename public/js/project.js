@@ -44,7 +44,7 @@ $(document).on("click", ".deleteProjectBtn", (e) => {
             url: "/project",
             headers: {
               "CSRF-Token": csrf
-          },
+            },
             data: {
               projectId: projectId
             }
@@ -80,23 +80,30 @@ $(document).on("click", ".changeTitleBtn", (e) => {
   const csrf = $("#_csrf").val();
   axios({
       method: "patch",
-      url: "/project/title",
+      url: "/project",
       headers: {
         "CSRF-Token": csrf
-    },
+      },
       data: {
         projectNum: projectNum,
         newTitle: newTitle
       }
     })
     .then(res => {
-      res.data.projectName === newTitle ?
-        $(".projectTitle").text(`${res.data.projectName}`) :
+      if(res.data.projectName === newTitle) {
+        $(".projectTitle").text(`${res.data.projectName}`);
+        Swal.fire({
+          icon: "success",
+          title: "The title is changed!"
+        })
+      } else {
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Something went wrong!"
         });
+      }
+
     })
     .catch(err => {
       console.log(err)
@@ -118,37 +125,38 @@ $(document).on("click", ".addAuthBtn", (e) => {
       url: "/project/auth",
       headers: {
         "CSRF-Token": csrf
-    },
+      },
       data: {
         userToBeAdd: user,
         projectId: projectid
       }
     })
     .then(res => {
-      res.data.addAuthStatus === "User exist" ?
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "The user has already been authorized.",
-        }) :
-        res.data.addAuthStatus === "No user" ?
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "The user does not exist, please make sure the account is correct."
-        }) :
-        res.data.addAuthStatus === "Success" ?
-        Swal.fire({
-            icon: "success",
-            title: "The user is authorized!"
-          }, authList.append(`
+      Swal.fire({
+          icon: "success",
+          title: "The user is authorized!"
+        }, authList.append(`
       <div class="authListItem">
       <h5><span class="badge bg-secondary">${user}<img
       src="/static/image/list/delete-auth.svg" class="removeAuthBtn"
       data-projectid="${projectid}" data-useraccount="${user}"></img></span></h5>
       </div>`),
-          projectAuthInput.val("")
-        ) :
+        projectAuthInput.val("")
+      );
+    }).catch(err => {
+      const addAuthStatus = err.response.data.addAuthStatus;
+      addAuthStatus === "User exist" ?
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "The user has already been authorized.",
+        }) :
+        addAuthStatus === "No user" ?
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "The user does not exist, please make sure the account is correct."
+        }) :
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -170,7 +178,7 @@ $(document).on("click", ".removeAuthBtn", (e) => {
       url: "/project/auth",
       headers: {
         "CSRF-Token": csrf
-    },
+      },
       data: {
         userToBeRemove: userToBeRemove,
         projectId: projectid

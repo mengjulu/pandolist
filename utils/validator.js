@@ -3,12 +3,7 @@ const { check } = require("express-validator");
 module.exports = {
     signupInfo: [
         check("account").isEmail()
-        .withMessage("Please enter a valid email address.")
-        .custom((value) => {
-            if (value === "test@test.com") {
-                throw Error("This email address is forbidden.")
-            }
-        }),
+        .withMessage("Please enter a valid email address."),
         check("password").isLength({
             min: 4
         })

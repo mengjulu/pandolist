@@ -80,9 +80,8 @@ exports.setDueDate = async (req, res, next) => {
             start: newDueDate,
             end: newDueDate
         }).exec();
-
         res.status(200).json({
-            setStatus: list.ok === 1 ? true : false
+            setStatus: list.modifiedCount === 1 ? true : false
         });
 
     } catch (err) {

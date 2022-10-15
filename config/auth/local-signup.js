@@ -21,7 +21,7 @@ const strategy = new LocalStrategy({
         const hashPassword = bcrypt.hashSync(password, saltRounds);
         const originAvatar = await davatar.generate({
             size: 100,
-            text: username,
+            text: username.toLowerCase(),
             textColor: "white",
             backgroundColor: "black",
             fontFamily: "Courier New",
@@ -29,7 +29,7 @@ const strategy = new LocalStrategy({
         });
 
         const newUser = await new User({
-            account: username,
+            account: username.toLowerCase(),
             password: hashPassword,
             name: name,
             avatar: {
@@ -38,7 +38,7 @@ const strategy = new LocalStrategy({
         });
         User.findOne({
             account: {
-                "$regex": username,
+                "$regex": username.toLowerCase(),
                 "$options": "i"
             }
         }).then(async (existUser) => {

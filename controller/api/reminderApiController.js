@@ -1,12 +1,8 @@
 const User = require("../../models/user");
 const List = require("../../models/list");
 const FormData = require("form-data");
-const lineReminder = require("../../config/helper/line-reminder");
-const googleReminder = require("../../config/helper/google-reminder");
-const schedule = require("node-schedule");
-const {
-    Mongoose
-} = require("mongoose");
+const lineReminder = require("../../utils/line-reminder");
+const googleReminder = require("../../utils/google-reminder");
 require("dotenv").config();
 
 exports.lineNotify = async (req, res, next) => {
@@ -33,7 +29,7 @@ exports.lineNotify = async (req, res, next) => {
             res.status(200).json({
                 scheduleStatus: false
             });
-            //if the reminder passed, then show error message(frontned).
+            //if the reminder passed, then show error message(frontend).
         } else if (currentList.end < new Date()) {
             res.status(200).json({
                 scheduleStatus: `invalid`
@@ -46,14 +42,14 @@ exports.lineNotify = async (req, res, next) => {
                     scheduleStatus: true
                 })
             } else {
-                //if auth status returns 401, then redirect to auth url(frontned).
-                //if status returns other code, then show error message(frontned).
-                res.status(200).json(lineAuthCheck)
+                //if auth status returns 401, then redirect to auth url(frontend).
+                //if status returns other code, then show error message(frontend).
+                res.json(lineAuthCheck)
             }
         }
     } catch (err) {
         const error = new Error(err);
-        error.httpStatusCode = 500;
+        error.statusCode = 500;
         return next(error);
     }
 };
@@ -67,7 +63,7 @@ exports.lineNotifyAuthCallback = async (req, res, next) => {
 
     } catch (err) {
         const error = new Error(err);
-        error.httpStatusCode = 500;
+        error.statusCode = 500;
         return next(error);
     }
 };
@@ -96,7 +92,7 @@ exports.googleCalendar = async (req, res, next) => {
     } catch (err) {
         console.log(err)
         const error = new Error(err);
-        error.httpStatusCode = 500;
+        error.statusCode = 500;
         return next(error);
     };
 };
@@ -110,7 +106,7 @@ exports.googleCalendarCallback = async (req, res, next) => {
 
     } catch (err) {
         const error = new Error(err);
-        error.httpStatusCode = 500;
+        error.statusCode = 500;
         return next(error);
     }
 };

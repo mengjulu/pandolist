@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const validator = require("../config/helper/validator");
+const validator = require("../utils/validator");
 const csrf = require("csurf");
 const csrfProtection = csrf({ cookie: false });
 const authController = require("../controller/page/authController");
@@ -42,6 +42,6 @@ router.get("/google/pandolist",
 );
 
 router.get("/sign-out", authApiController.signout);
-router.patch("/change/password", csrfProtection, authApiController.changePassword);
+router.patch("/password", csrfProtection, authApiController.changePassword);
 
 module.exports = router;

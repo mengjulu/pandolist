@@ -25,20 +25,19 @@ app.use((req, res, next) => {
 
 //routes setting
 const indexRoute = require("./routes/index");
+const reminderRoute = require("./routes/reminder");
+const messageRoute = require("./routes/message");
 const listRoute = require("./routes/list");
 const authRoute = require("./routes/auth");
 const projectRoute = require("./routes/project");
-const reminderRoute = require("./routes/reminder");
-const messageRoute = require("./routes/message");
 const accountRoute = require("./routes/account");
-const errorController = require("./controller/page/errorController");
 
 app.use(indexRoute);
-app.use(listRoute);
-app.use("/auth", authRoute);
-app.use(projectRoute);
 app.use(reminderRoute);
 app.use(messageRoute);
+app.use("/list", listRoute);
+app.use("/auth", authRoute);
+app.use("/project", projectRoute);
 app.use("/account", accountRoute);
 
 //socket connection
@@ -46,10 +45,10 @@ const socketConfig = require("./config/socket");
 io.on("connection", socketConfig);
 
 //error handling
-app.use((error, req, res) => {
+const errorController = require("./controller/page/errorController");
+app.use((error, req, res, next) => {
     console.log(error)
-    const status = error.status || 500;
-   return res.redirect("/error");
+    res.redirect("/error");
 });
 app.get("/error", errorController.serverError);
 app.get("*", errorController.pageNotFoundError);

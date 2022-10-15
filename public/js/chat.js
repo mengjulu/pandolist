@@ -16,7 +16,7 @@ const messageSend = (e) => {
     //post new message to the server
     axios({
             method: "post",
-            url: "/create/message",
+            url: "/message",
             data: {
                 newMessage: newMessage.val(),
                 projectId: projectId

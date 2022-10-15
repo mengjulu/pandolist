@@ -5,12 +5,11 @@ $(document).on("click", ".checkBox", (e) => {
     const list = that.closest(".listItem");
     const checkBox = list.find(".checkBox");
     const checkedText = list.find(".currentList");
-    const projectNum = e.target.dataset.num;
     const listId = e.target.dataset.listid;
     const csrf = $("#_csrf").val();
     axios({
             method: "patch",
-            url: `/check/list/${projectNum}/${listId}`,
+            url: `/list/${listId}`,
             headers: {
                 "CSRF-Token": csrf
             }
@@ -48,7 +47,7 @@ $(document).on("click", ".newListBtn", (e) => {
 
     axios({
         method: "post",
-        url: `/add/list/${projectNum}`,
+        url: `/list/${projectNum}`,
         headers: {
             "CSRF-Token": csrf
         },
@@ -146,7 +145,7 @@ $(document).on("click", ".editListBtn", (e) => {
 
         axios({
                 method: "patch",
-                url: `/edit/list/${projectNum}/${listId}`,
+                url: `/list/${projectNum}/${listId}`,
                 headers: {
                     "CSRF-Token": csrf
                 },
@@ -206,8 +205,8 @@ $(document).on("click", ".dueDateBtn", (e) => {
     const listId = $(e.target).val();
     const csrf = $("#_csrf").val();
     axios({
-            method: "patch",
-            url: `/setdate/list/${listId}`,
+            method: "put",
+            url: `/list/${listId}`,
             headers: {
                 "CSRF-Token": csrf
             },
@@ -245,7 +244,7 @@ $(document).on("click", ".deleteListBtn", (e) => {
     const csrf = $("#_csrf").val();
     axios({
         method: "delete",
-        url: `/delete/list/${projectNum}/${listId}`,
+        url: `/list/${projectNum}/${listId}`,
         headers: {
             "CSRF-Token": csrf
         }})

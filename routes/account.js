@@ -16,9 +16,10 @@ const upload = multer({
     }
 });
 
-router.get("/settings", authApiController.auth, csrfProtection, accountController.getSettingsPage);
+router.route("/settings")
+.get(authApiController.auth, csrfProtection, accountController.getSettingsPage)
+.post(upload.single("avatar"), accountApiController.uploadAvatar)
+.patch(csrfProtection, accountApiController.editUserName);
 router.get("/password", authApiController.auth, csrfProtection, accountController.getPasswordPage);
-router.patch("/profile/name", csrfProtection, accountApiController.editUserName);
-router.post("/profile/avatar", upload.single("avatar"), accountApiController.uploadAvatar);
 
 module.exports = router;

@@ -15,8 +15,8 @@ const userSchema = new Schema({
         require: true
     },
     avatar: {
-        avatarPhoto: "String",
-        deleteHash: "String"
+        avatarPhoto: { type: String },
+        deleteHash: { type: String }
     },
     project: [{
         type: Schema.Types.ObjectId,
