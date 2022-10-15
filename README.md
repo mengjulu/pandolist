@@ -55,7 +55,6 @@ A to-do list that you can chat with members and set notification.
     REDIS_HOST=<redis host>
     REDIS_PORT=<redis port>
     REDIS_PASSWORD=<redis password>
-    UPSTASH_REDIS_URL=<redis url>
     
 ### **Start (port: 3000)**
     npm start 
