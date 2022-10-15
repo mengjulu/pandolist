@@ -3,11 +3,11 @@ A to-do list that you can chat with members and set notification.
 
 
 # Table of Contents
-- [Live Demo](https://github.com/mengjulu/pandolist/readme.md "Live Demo")
-- [Build With](https://github.com/mengjulu/pandolist/readme.md "Build With")
-- [Getting Started](https://github.com/mengjulu/pandolist/readme.md "Getting Started")
-- [API Usage](https://github.com/mengjulu/pandolist/readme.md "API Usage")
-- [Screeshot](https://github.com/mengjulu/pandolist/readme.md "Screeshot")
+- [Live Demo](#live-demo)
+- [Build With](#build-with)
+- [Getting Started](#getting-started)
+- [API Usage](#api-usage)
+- [Screeshot](#screeshot)
 
 # Live Demo
 
@@ -48,6 +48,8 @@ A to-do list that you can chat with members and set notification.
     GOOGLE_CLIENT_SECRET_CALENDAR_URL=<google client calendar callback url>
     IMGUR_CLIENT_ID=<imgur client id>
     IMGUR_CLIENT_SECRET=<imgur client secret>
+    IMGUR_REFRESH_TOKEN=<imgur client refresh token>
+    IMGUR_ALBUM_ID=<imgur client album id>
     MONGODBURL=<mongodb url>
     SESSIONSECRET=<session secret>
     REDIS_HOST=<redis host>
@@ -63,8 +65,8 @@ A to-do list that you can chat with members and set notification.
 
 # API Usage
 
-| Method|Route | Description |
-|:-------------:|:-------------:|:------------------------------:|
+| Method | Route | Description |
+|:-------------|:-------------|:------------------------------|
 | **INDEX** |
 | GET | `/` |Get index page |
 | GET | `/mylist` | Get user's lists of events |
@@ -107,21 +109,31 @@ A to-do list that you can chat with members and set notification.
 
 # Screeshot
 - Index (visitor)
-<img width="957" alt="Index (visitor)" src="https://user-images.githubusercontent.com/52753746/186680337-ccd54b26-6f44-4899-a7d7-f6592526b075.png">
+<img width="800" alt="Index (visitor)" src="https://user-images.githubusercontent.com/52753746/186680337-ccd54b26-6f44-4899-a7d7-f6592526b075.png">
+
 - Index (user)
-<img width="955" alt="Index (user)" src="https://user-images.githubusercontent.com/52753746/186682394-17d934a1-cd1b-446b-8b9c-2d0cf37cb9ee.png">
+<img width="800" alt="Index (user)" src="https://user-images.githubusercontent.com/52753746/186682394-17d934a1-cd1b-446b-8b9c-2d0cf37cb9ee.png">
+
 - Google auth with approved account
-![](https://user-images.githubusercontent.com/52753746/186711605-830a4b24-9727-4b5a-ba75-e53027429aeb.gif)
+<img width="800" alt="googleauth" src="https://user-images.githubusercontent.com/52753746/186711605-830a4b24-9727-4b5a-ba75-e53027429aeb.gif">
+
 - project(create/edit title/delete)
-![project](https://user-images.githubusercontent.com/52753746/186728809-01856adb-7460-42ea-9313-cfcfecfa996c.gif)
+<img width="800" alt="project" src="https://user-images.githubusercontent.com/52753746/186728809-01856adb-7460-42ea-9313-cfcfecfa996c.gif">
+
 - project authorization
-![projectAuth](https://user-images.githubusercontent.com/52753746/186808584-e1cb4243-88ed-4d58-b9ff-2d953521eeb4.gif)
--project chat
-![projectchat](https://user-images.githubusercontent.com/52753746/186813992-69b24d54-840b-4c99-ba95-b08f4804f5a3.gif)
+<img width="800" alt="projectAuth" src="https://user-images.githubusercontent.com/52753746/186808584-e1cb4243-88ed-4d58-b9ff-2d953521eeb4.gif">
+
+- project chat
+<img width="800" alt="projectchat" src="https://user-images.githubusercontent.com/52753746/186813992-69b24d54-840b-4c99-ba95-b08f4804f5a3.gif">
+
 - list (create/edit/check/delete)
 ![list](https://user-images.githubusercontent.com/52753746/186718174-9c85fdec-d2da-4843-8fd8-466521d7c4e0.gif)
 - user profile
 <img width="984" alt="user profile" src="https://user-images.githubusercontent.com/52753746/186805774-eab77c77-4f6d-461a-83a3-747a15d8e85a.png">
+<img width="800" alt="list" src="https://user-images.githubusercontent.com/52753746/186718174-9c85fdec-d2da-4843-8fd8-466521d7c4e0.gif">
+
+- user settings
+<img width="800" alt="user settings" src="https://user-images.githubusercontent.com/52753746/186805774-eab77c77-4f6d-461a-83a3-747a15d8e85a.png">
 
 - google notification
-![google notification](https://user-images.githubusercontent.com/52753746/186853478-35ba2fa7-3b8f-4c00-908b-e74348a040dc.gif)
+<img width="800" alt="google notification" src="https://user-images.githubusercontent.com/52753746/186853478-35ba2fa7-3b8f-4c00-908b-e74348a040dc.gif">
