@@ -52,11 +52,13 @@ A to-do list that you can chat with members and set notification.
     IMGUR_ALBUM_ID=<imgur client album id>
     MONGODBURL=<mongodb url>
     SESSIONSECRET=<session secret>
-    *REDIS_HOST=<redis host>
-    *REDIS_PORT=<redis port>
-    *REDIS_PASSWORD=<redis password>
-    *UPSTASH_REDIS_URL=<Use for heroku redis service>
- <sub>*Redis related variable only use for heroku redis service. Therefore, leave them blank if you run code locally.</sub>  
+    **REDIS_HOST=<redis host>
+    **REDIS_PORT=<redis port>
+    **REDIS_PASSWORD=<redis password>
+    **UPSTASH_REDIS_URL=<Use for heroku redis service>
+ <sub>*Redis related variable only use for heroku Use for heroku redis service>
+    
+<sub>*Redis related variable only use for heroku redis service. Therefore, leave them blank if yoservice. Therefore, leave them blank if you  run code localun code locally.</suby.</sub>  
  
 ### **Start (port: 3000)**
     npm start 
@@ -128,9 +130,10 @@ A to-do list that you can chat with members and set notification.
 <img width="800" alt="projectchat" src="https://user-images.githubusercontent.com/52753746/186813992-69b24d54-840b-4c99-ba95-b08f4804f5a3.gif">
 
 - list (create/edit/check/delete)
-![list](https://user-images.githubusercontent.com/52753746/186718174-9c85fdec-d2da-4843-8fd8-466521d7c4e0.gif)
+<img width="800" alt="list" src="https://user-images.githubusercontent.com/52753746/186718174-9c85fdec-d2da-4843-8fd8-466521d7c4e0.gif">
+
 - user profile
-<img width="984" alt="user profile" src="https://user-images.githubusercontent.com/52753746/186805774-eab77c77-4f6d-461a-83a3-747a15d8e85a.png">
+<img width="800" alt="user profile" src="https://user-images.githubusercontent.com/52753746/186805774-eab77c77-4f6d-461a-83a3-747a15d8e85a.png">
 <img width="800" alt="list" src="https://user-images.githubusercontent.com/52753746/186718174-9c85fdec-d2da-4843-8fd8-466521d7c4e0.gif">
 
 - user settings
