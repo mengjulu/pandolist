@@ -52,11 +52,12 @@ A to-do list that you can chat with members and set notification.
     IMGUR_ALBUM_ID=<imgur client album id>
     MONGODBURL=<mongodb url>
     SESSIONSECRET=<session secret>
-    REDIS_HOST=<redis host>
-    REDIS_PORT=<redis port>
-    REDIS_PASSWORD=<redis password>
-    UPSTASH_REDIS_URL=<redis url>
-    
+    *REDIS_HOST=<redis host>
+    *REDIS_PORT=<redis port>
+    *REDIS_PASSWORD=<redis password>
+    *UPSTASH_REDIS_URL=<Use for heroku redis service>
+ <sub>*Redis related variable only use for heroku redis service. Therefore, leave them blank if you run code locally.</sub>  
+ 
 ### **Start (port: 3000)**
     npm start 
 
