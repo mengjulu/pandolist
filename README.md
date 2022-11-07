@@ -56,9 +56,8 @@ A to-do list that you can chat with members and set notification.
     **REDIS_PORT=<redis port>
     **REDIS_PASSWORD=<redis password>
     **UPSTASH_REDIS_URL=<Use for heroku redis service>
- <sub>*Redis related variable only use for heroku Use for heroku redis service>
     
-<sub>*Redis related variable only use for heroku redis service. Therefore, leave them blank if yoservice. Therefore, leave them blank if you  run code localun code locally.</suby.</sub>  
+<sub>*Redis related variable only use for heroku redis service. Therefore, leave them blank if yoservice. Therefore, leave them blank if you  run code localun code locally.</sub>  
  
 ### **Start (port: 3000)**
     npm start 
